@@ -1,0 +1,28 @@
+# Your real data stays out of the public repo
+assets/cv_master.json
+assets/photo.*
+photo.jpg
+photo.jpeg
+photo.png
+fit_matrix_*.json
+claim_ledger_*.json
+
+# Build artefacts
+build/
+outputs/
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.pdf
+!docs/*.pdf
+
+# Local tooling config
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/

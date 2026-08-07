@@ -1,0 +1,128 @@
+% =====================================================================
+% TEMPLATE A — ATS CV. Single column, linear text, one page.
+% Everything here is machine-readable text: no tables, no text boxes,
+% no icons-as-glyphs, no header/footer, no multi-column body.
+% Fill every {{PLACEHOLDER}}. Delete blocks you do not use.
+% Compile with: python scripts/build_pdf.py --tex <this file> --check-text --max-pages 1
+% =====================================================================
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+\ifdefined\pdfgentounicode\pdfgentounicode=1\fi
+\usepackage[scaled=0.94]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top=1.0cm, bottom=0.9cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- DENSITY KNOBS (cut content before touching these) ---------------
+\newcommand{\sectiongap}{\vspace{7pt}}   % tight: 5pt | very tight: 4pt
+\newcommand{\entrygap}{\vspace{4pt}}     % tight: 3pt | very tight: 2pt
+% ---------------------------------------------------------------------
+
+\definecolor{accent}{HTML}{1E7A4A}
+\definecolor{textdark}{HTML}{111111}
+\definecolor{graytext}{HTML}{444444}
+
+% Links keep their visible text, so parsers still read them.
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
+            pdftitle={{{FULL NAME}} -- CV}, pdfauthor={{{FULL NAME}}}}
+
+% Section titles: plain uppercase words an ATS recognises
+% (EXPERIENCE, EDUCATION, SKILLS...). Never rename them creatively.
+\newcommand{\rubrique}[1]{%
+  \sectiongap
+  {\bfseries\large\color{textdark}\MakeUppercase{#1}}%
+  \par\vspace{1pt}%
+  {\color{accent}\rule{\linewidth}{0.9pt}}%
+  \par\vspace{4pt}%
+}
+
+% \poste{Job title}{Company}{Location}{MM/YYYY -- MM/YYYY}
+% Keep the title on its own line for reliable field segmentation.
+\newcommand{\poste}[4]{%
+  {\bfseries\color{textdark}#1}\par
+  {\color{graytext}#2 --- #3}\hfill{\color{graytext}#4}\par\vspace{2pt}%
+}
+
+\newlist{bul}{itemize}{1}
+\setlist[bul]{leftmargin=1.2em, itemsep=1.5pt, topsep=2pt, parsep=0pt,
+  label=\textbullet}
+
+\begin{document}
+
+%% ---------------- HEADER ----------------
+%% Keep ATS contact details as linear body text. This template is intentionally photo-free.
+{\huge\bfseries\color{textdark}{{FULL NAME}}}\par\vspace{3pt}
+{\large\color{accent}{{TRUTHFUL PROFESSIONAL IDENTITY OR LABELLED TARGET ROLE}}}\par\vspace{5pt}
+{\small
+ {{City, Country}} \quad$\vert$\quad {{phone}} \quad$\vert$\quad \href{mailto:{{email}}}{{{email}}}\par
+ \href{{{linkedin url}}}{{{linkedin.com/in/handle}}} \quad$\vert$\quad
+ \href{{{portfolio url}}}{{{portfolio}}} \quad$\vert$\quad
+ \href{{{github url}}}{{{github.com/handle}}}
+}
+
+\rubrique{{{Profil / Professional Summary}}}
+{\small
+{{40-70 words. State a truthful identity, the most relevant proven capabilities,
+and one supported outcome or scope signal. Use the ad's terminology only where
+the fit matrix links it to candidate evidence.}}
+}
+
+\rubrique{{{Compétences / Skills}}}
+%% Grouped keyword lines. Spell out both the acronym and the full form the FIRST
+%% time it matters: "CI/CD (intégration et déploiement continus)".
+%% Only technologies that appear in cv_master.json. Never pad.
+{\small
+{\bfseries {{Category}} :} {{kw, kw, kw, kw, kw}}\par\vspace{1.5pt}
+{\bfseries {{Category}} :} {{kw, kw, kw, kw, kw}}\par\vspace{1.5pt}
+{\bfseries {{Category}} :} {{kw, kw, kw, kw}}
+}
+
+\rubrique{{{Expérience Professionnelle / Professional Experience}}}
+
+%% REVERSE-CHRONOLOGICAL. Most recent first, no exception.
+\poste{{{Job title}}}{{{Company}}}{{{City, Country}}}{{{MM/YYYY -- MM/YYYY}}}
+{\small
+\begin{bul}
+  \item {{Action verb + scope + measurable result + technology named in the job ad}}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\entrygap
+\poste{{{Job title}}}{{{Company}}}{{{City, Country}}}{{{MM/YYYY -- MM/YYYY}}}
+{\small
+\begin{bul}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\rubrique{{{Projets / Projects}}}
+
+\poste{{{Project name}}}{{{Role: e.g. Développeur full-stack}}}{{{Stack, stack, stack}}}{{{MM/YYYY -- Présent}}}
+{\small
+\begin{bul}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\rubrique{{{Formation / Education}}}
+{\small
+{\bfseries {{Degree, field}}}\hfill{\color{graytext}{{YYYY -- YYYY}}}\par
+{\color{graytext}{{School}} --- {{City, Country}}}
+}
+
+\rubrique{{{Langues / Languages}}}
+{\small {{Language (level)}} \quad$\vert$\quad {{Language (level)}}}
+
+\end{document}

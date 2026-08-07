@@ -1,0 +1,4 @@
+interface:
+  display_name: "CV PDF Studio"
+  short_description: "Create truthful, tailored CV and cover-letter PDFs"
+  default_prompt: "Use $cv-pdf-studio to tailor my CV to this job ad and deliver an ATS-ready PDF."

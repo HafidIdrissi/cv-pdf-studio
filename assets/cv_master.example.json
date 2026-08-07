@@ -1,0 +1,162 @@
+{
+  "_readme": "Schema reference with fictional placeholder data. Copy to assets/cv_master.json and replace every value with verified candidate facts. IDs make every generated claim traceable. Dates use YYYY-MM; use present for an ongoing item.",
+  "schema_version": 2,
+  "identity": {
+    "id": "identity-candidate",
+    "full_name": "Alex Placeholder",
+    "professional_identity": "Software Engineer",
+    "email": "alex.placeholder@example.com",
+    "phone": "+00 000 000 000",
+    "location": "City, Country",
+    "mobility": "Remote / on-site; open to relocation in Region",
+    "linkedin": "https://www.linkedin.com/in/example-profile/",
+    "github": "https://github.com/example-user",
+    "portfolio": "https://example.com"
+  },
+  "preferences": {
+    "target_markets": ["France"],
+    "photo_consent": false,
+    "default_language": "en",
+    "work_authorization": "Add only when useful and lawful for the target application"
+  },
+  "experiences": [
+    {
+      "id": "exp-example-corp",
+      "company": "Example Corp",
+      "role": "Software Engineer",
+      "location": "City, Country",
+      "start": "2023-01",
+      "end": "present",
+      "dates_label": "Jan. 2023 – Present",
+      "context": "Product team of eight building a customer-facing web platform.",
+      "include_policy": "targeted",
+      "achievements": [
+        {
+          "id": "ach-api-latency",
+          "statement": "Reduced API response time from 800 ms to 200 ms for the customer platform.",
+          "skill_refs": ["skill-language-a", "skill-framework-a"],
+          "evidence_note": "Replace with the candidate's private source or verification note."
+        },
+        {
+          "id": "ach-support-demand",
+          "statement": "Reduced support tickets by 30% after shipping a guided workflow.",
+          "skill_refs": ["skill-e2e-testing"],
+          "evidence_note": "Replace with the candidate's private source or verification note."
+        }
+      ]
+    },
+    {
+      "id": "exp-sample-industries",
+      "company": "Sample Industries",
+      "role": "Junior Developer Intern",
+      "location": "City, Country",
+      "start": "2022-04",
+      "end": "2022-09",
+      "dates_label": "Apr. 2022 – Sep. 2022",
+      "context": "Six-month internship on an internal tooling team.",
+      "include_policy": "targeted",
+      "achievements": [
+        {
+          "id": "ach-weekly-automation",
+          "statement": "Automated a manual step in a weekly internal process.",
+          "skill_refs": ["skill-language-b"],
+          "evidence_note": "Qualitative outcome; do not invent time saved."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-sample-platform",
+      "name": "Sample Project",
+      "tagline": "A service for a clearly identified user group",
+      "start": "2024-05",
+      "end": "present",
+      "dates_label": "May 2024 – Present",
+      "url": "https://example.com/sample-project",
+      "include_policy": "targeted",
+      "achievements": [
+        {
+          "id": "ach-sample-project-delivery",
+          "statement": "Built and deployed the project's web application and API.",
+          "skill_refs": ["skill-language-a", "skill-framework-a", "skill-database-a"],
+          "evidence_note": "State only the components genuinely owned by the candidate."
+        }
+      ]
+    },
+    {
+      "id": "project-open-source-sample",
+      "name": "Second Sample Project",
+      "tagline": "A small open-source contribution",
+      "start": "2023-02",
+      "end": "2023-08",
+      "dates_label": "Feb. 2023 – Aug. 2023",
+      "url": "https://github.com/example-user/second-sample-project",
+      "include_policy": "conditional",
+      "achievements": [
+        {
+          "id": "ach-open-source-contribution",
+          "statement": "Contributed a focused improvement to an open-source library.",
+          "skill_refs": ["skill-language-b"],
+          "evidence_note": "Link to the pull request or commit when available."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-example-masters",
+      "degree": "Master's degree",
+      "field": "Computer Science",
+      "school": "Example University",
+      "location": "City, Country",
+      "start": "2020-09",
+      "end": "2022-06",
+      "dates_label": "2020 – 2022"
+    }
+  ],
+  "skills": {
+    "Languages": [
+      {"id": "skill-language-a", "name": "Language A", "evidence": ["ach-api-latency", "ach-sample-project-delivery"]},
+      {"id": "skill-language-b", "name": "Language B", "evidence": ["ach-weekly-automation", "ach-open-source-contribution"]}
+    ],
+    "Frameworks & Libraries": [
+      {"id": "skill-framework-a", "name": "Framework A", "evidence": ["ach-api-latency", "ach-sample-project-delivery"]}
+    ],
+    "Data": [
+      {"id": "skill-database-a", "name": "Database A", "evidence": ["ach-sample-project-delivery"]}
+    ],
+    "Testing & Quality": [
+      {"id": "skill-e2e-testing", "name": "End-to-end testing", "evidence": ["ach-support-demand"]}
+    ]
+  },
+  "languages": [
+    {"id": "lang-example-native", "language": "Language 1", "level": "Native"},
+    {"id": "lang-example-professional", "language": "Language 2", "level": "Professional working proficiency"}
+  ],
+  "certifications": [
+    {
+      "id": "cert-example",
+      "name": "Example Certification",
+      "issuer": "Issuing Organisation",
+      "date": "2024-03",
+      "url": "https://example.com/verify/000000"
+    }
+  ],
+  "strengths": [
+    {"id": "strength-ownership", "name": "Ownership", "evidence": ["ach-sample-project-delivery"]},
+    {"id": "strength-communication", "name": "Clear communication", "evidence": ["ach-support-demand"]}
+  ],
+  "exclusions": [
+    {
+      "ref_id": "project-open-source-sample",
+      "reason": "Exclude unless the application values open-source work or work outside the day job."
+    }
+  ],
+  "conditional_include": [
+    {
+      "ref_id": "project-open-source-sample",
+      "include_when": "The ad values open-source contributions or independent technical work."
+    }
+  ]
+}

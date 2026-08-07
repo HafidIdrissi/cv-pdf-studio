@@ -1,0 +1,27 @@
+{
+  "target": {
+    "company": "Example Employer",
+    "advertised_title": "Platform Engineer",
+    "market": "France",
+    "application_channel": "ATS portal",
+    "language": "en"
+  },
+  "requirements": [
+    {
+      "requirement": "API performance",
+      "priority": "must",
+      "status": "proven",
+      "master_refs": ["ach-api-latency"],
+      "cv_action": "show_in_summary_and_experience",
+      "notes": "Direct quantified evidence"
+    },
+    {
+      "requirement": "Container orchestration",
+      "priority": "must",
+      "status": "gap",
+      "master_refs": [],
+      "cv_action": "omit_and_report_gap",
+      "notes": "No candidate evidence in the master file"
+    }
+  ]
+}

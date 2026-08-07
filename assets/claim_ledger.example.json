@@ -1,0 +1,17 @@
+{
+  "target": "Example Employer — Platform Engineer",
+  "claims": [
+    {
+      "id": "claim-summary-api",
+      "section": "summary",
+      "text": "Software engineer focused on reliable web platforms and API performance.",
+      "source_refs": ["identity-candidate", "ach-api-latency"]
+    },
+    {
+      "id": "claim-experience-latency",
+      "section": "experience",
+      "text": "Reduced API response time from 800 ms to 200 ms for the customer platform.",
+      "source_refs": ["exp-example-corp", "ach-api-latency", "skill-language-a"]
+    }
+  ]
+}

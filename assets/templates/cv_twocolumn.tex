@@ -1,0 +1,197 @@
+% =====================================================================
+% TEMPLATE B — DESIGN CV, two columns, one page.
+% Fill every {{PLACEHOLDER}}. Delete blocks you do not use.
+% Compile with: python scripts/build_pdf.py --tex <this file> [--photo <img>] --max-pages 1
+% The header expands automatically when photo.jpg is absent.
+% =====================================================================
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{charter}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top=0.3cm, bottom=0.3cm, left=1cm, right=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- DENSITY KNOBS (last resort only — cut content first) ------------
+% entry gap: 5pt default | tight: 3pt | very tight: 2pt
+\newcommand{\entrygap}{\vspace{5pt}}
+% section gap: 6pt default | tight: 4pt | very tight: 3pt
+\newcommand{\sectiongap}{\vspace{6pt}}
+% bullet size: \footnotesize default | tight: \scriptsize (avoid, hurts legibility)
+\newcommand{\bulletsize}{\footnotesize}
+% ---------------------------------------------------------------------
+
+\definecolor{maingreen}{HTML}{1E7A4A}   % accent — change to rebrand
+\definecolor{textdark}{HTML}{1A1A1A}
+\definecolor{graytext}{HTML}{555555}
+
+\IfFileExists{photo.jpg}{%
+  \newcommand{\cvheaderwidth}{0.75\linewidth}%
+}{%
+  \newcommand{\cvheaderwidth}{1.0\linewidth}%
+}
+
+\hypersetup{colorlinks=true, urlcolor=maingreen, linkcolor=maingreen}
+
+\newcommand{\secheading}[1]{%
+  \vspace{2pt}%
+  {\fontfamily{bch}\selectfont\color{maingreen}\bfseries\MakeUppercase{#1}}%
+  \par\vspace{-3pt}%
+  {\color{maingreen}\rule{\linewidth}{1pt}}%
+  \par\vspace{3pt}%
+}
+
+\newcommand{\puce}{{\color{maingreen}$\checkmark$}~~}
+
+% \entree{Organisation}{Role}{Dates}{Location or empty}
+\newcommand{\entree}[4]{%
+  \noindent
+  {\fontfamily{bch}\selectfont\bfseries\color{textdark}#1}%
+  \hfill{\color{graytext}\small #3}%
+  \par\vspace{-1pt}%
+  {\small\itshape\color{maingreen}#2}\hfill{\small\color{graytext}#4}%
+  \par\vspace{3pt}%
+}
+
+\newlist{bul}{itemize}{1}
+\setlist[bul]{leftmargin=1.05em, itemsep=1.2pt, topsep=2pt, parsep=0pt,
+  label={\color{maingreen}\scriptsize$\blacktriangleright$}}
+
+\begin{document}
+
+%% ---------------- HEADER ----------------
+\begin{minipage}[c]{\cvheaderwidth}
+  {\fontfamily{bch}\selectfont\color{maingreen}\huge\bfseries {{FULL NAME}}}
+  \par\vspace{5pt}
+  {\color{textdark}\Large\bfseries {{TARGET JOB TITLE — mirror the job ad}}}
+  \par\vspace{3pt}
+  {\color{graytext}\large {{3-4 keyword specialties $\cdot$ separated $\cdot$ like this}}}
+  \par\vspace{8pt}
+  {\small
+    \puce {{Location / mobility}}
+    \puce {{phone}} \quad \puce \href{mailto:{{email}}}{{{email}}} \\
+    \puce \href{{{linkedin url}}}{{{linkedin label}}}
+    \quad \puce \href{{{portfolio url}}}{{{portfolio label}}}
+  }
+\end{minipage}%
+\IfFileExists{photo.jpg}{%
+\hfill
+\begin{minipage}[c]{0.22\linewidth}
+  \begin{flushright}
+    \begin{tikzpicture}
+      \clip (0,0) rectangle (2.6cm,3.2cm);
+      \node[inner sep=0,anchor=south west] at (0,0)
+        {\includegraphics[width=2.6cm,height=3.2cm,keepaspectratio=false]{photo.jpg}};
+    \end{tikzpicture}
+  \end{flushright}
+\end{minipage}
+}{}
+
+\vspace{8pt}
+
+%% ---------------- BODY: TWO COLUMNS ----------------
+\begin{minipage}[t]{0.62\linewidth}
+
+\secheading{{{Profil Professionnel / Professional Summary}}}
+{\small
+{{40-70 words. Use a voice appropriate to the target language and market. State
+a truthful identity, relevant proven capabilities, and one supported outcome or
+scope signal. Avoid generic motivation claims.}}
+}
+
+\sectiongap
+\secheading{{{Expériences Professionnelles / Professional Experience}}}
+
+%% REVERSE-CHRONOLOGICAL. Most recent first. 2-3 entries max.
+\entree{{{Company}}}{{{Role}}}{{{MM/YYYY -- MM/YYYY}}}{{{City, Country}}}
+{\bulletsize
+\begin{bul}
+  \item {{Action verb + what exactly + measurable impact + the ATS keyword in context}}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\entrygap
+\entree{{{Company}}}{{{Role}}}{{{MM/YYYY -- MM/YYYY}}}{{{City, Country}}}
+{\bulletsize
+\begin{bul}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\sectiongap
+\secheading{{{Projets Techniques Clés / Key Projects}}}
+
+%% Also reverse-chronological. Keep only projects that answer the job ad.
+\entree{{{Project — one-line value proposition}}}{{{Stack $\cdot$ Stack $\cdot$ Stack}}}{{{MM/YYYY -- Présent}}}{}
+{\bulletsize
+\begin{bul}
+  \item {{...}}
+  \item {{...}}
+\end{bul}
+}
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.34\linewidth}
+
+%% Right column: order the blocks by what the job ad asks for FIRST.
+%% 5-8 items per block, never more.
+\secheading{{{Skills block 1 title}}}
+{\small
+\puce {{item}} \\
+\puce {{item}} \\
+\puce {{item}}
+}
+
+\sectiongap
+\secheading{{{Skills block 2 title}}}
+{\small
+\puce {{item}} \\
+\puce {{item}}
+}
+
+\sectiongap
+\secheading{{{Formation / Education}}}
+{\small
+{\bfseries {{Degree}}}\\
+{{Field}}\\
+{\color{maingreen}\itshape {{School}}}\\
+{\color{graytext}{{YYYY -- YYYY}}}
+}
+
+\sectiongap
+\secheading{{{Langues / Languages}}}
+{\small
+\puce {{Language -- level}} \\
+\puce {{Language -- level}}
+}
+
+\sectiongap
+\secheading{{{Atouts / Strengths}}}
+{\small
+\puce {{soft skill tied to the job ad}} \\
+\puce {{...}}
+}
+
+\sectiongap
+\secheading{{{Portfolio}}}
+{\small
+\puce \href{{{url}}}{{{label}}} \\
+\puce \href{{{url}}}{{{label}}}
+}
+
+\end{minipage}
+
+\end{document}

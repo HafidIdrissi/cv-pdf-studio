@@ -1,0 +1,73 @@
+% =====================================================================
+% COVER LETTER — one page, letterhead matching the CV accent colour.
+% Same accent as the chosen CV template so the pair looks designed together.
+% Compile with: python scripts/build_pdf.py --tex <this file> --max-pages 1
+% (no --photo: a cover letter carries no photo)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.94]{helvet}
+\usepackage{charter}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top=1.6cm, bottom=1.4cm, left=2cm, right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}       % tight: 5pt, if the letter runs long
+
+\definecolor{accent}{HTML}{1E7A4A}
+\definecolor{textdark}{HTML}{111111}
+\definecolor{graytext}{HTML}{444444}
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+
+\begin{document}
+\setstretch{1.06}               % tight: 1.0
+
+%% ---------------- LETTERHEAD ----------------
+{\fontfamily{bch}\selectfont\color{accent}\LARGE\bfseries {{FULL NAME}}}\par
+\vspace{2pt}
+{\color{graytext}\small {{City, Country}} \quad$\vert$\quad {{phone}} \quad$\vert$\quad
+\href{mailto:{{email}}}{{{email}}} \quad$\vert$\quad \href{{{portfolio url}}}{{{portfolio}}}}\par
+\vspace{2pt}
+{\color{accent}\rule{\linewidth}{1pt}}
+
+\vspace{10pt}
+{\small\color{graytext}
+{{Recipient name or "Service Recrutement"}}\\
+{{Company}}\\
+{{City}}
+\par\vspace{6pt}
+{{City}}, {{le JJ mois AAAA / Month DD, YYYY}}
+}
+
+\vspace{8pt}
+{\bfseries\color{textdark}{{Objet : Candidature au poste de X — réf. Y}}}
+
+\vspace{6pt}
+{{Madame, Monsieur, / Dear Hiring Manager,}}
+
+%% ---- HOOK: why them, why now. Never "Je me permets de vous adresser ma candidature".
+{{Paragraph 1 — 2-3 sentences. Name something specific about the company or the
+role and connect it to something you have actually done.}}
+
+%% ---- PROOF: unpack one experience; use a number only when the master supports it.
+{{Paragraph 2 — 3-4 sentences. The single most relevant thing you built,
+what it changed, and the technology overlap with the job ad.}}
+
+%% ---- FIT: what you would do in the first months + the human angle.
+{{Paragraph 3 — 2-3 sentences. Concrete contribution, not adjectives about yourself.}}
+
+%% ---- CLOSE: simple, confident, one ask.
+{{Paragraph 4 — 1-2 sentences: availability + invitation to talk.}}
+
+\vspace{4pt}
+{{Je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées. /
+Sincerely,}}
+
+\vspace{10pt}
+{\bfseries\color{textdark}{{FULL NAME}}}
+
+\end{document}
