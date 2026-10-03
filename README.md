@@ -1,5 +1,7 @@
 # CV PDF Studio
 
+[![Python Tests](https://github.com/HafidIdrissi/cv-pdf-studio/actions/workflows/tests.yml/badge.svg)](https://github.com/HafidIdrissi/cv-pdf-studio/actions/workflows/tests.yml)
+
 CV PDF Studio is an agent skill that turns verified career evidence and a target role into a
 tailored CV PDF and, optionally, a matching cover letter.
 
@@ -121,6 +123,18 @@ cv-pdf-studio/
 - Reverse chronology with relevance-based selection
 - Qualitative outcomes accepted when no defensible metric exists
 - No delivery without verified PDF, page, and requested ATS checks
+
+## Tests
+
+Run the existing unit tests from the repository root:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+GitHub Actions runs this suite on Python 3.9 and 3.14. The LaTeX integration
+test is skipped when `pdflatex` is unavailable; a green core run does not
+verify PDF compilation in that environment.
 
 ## License
 
